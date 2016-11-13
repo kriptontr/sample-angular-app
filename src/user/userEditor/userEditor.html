@@ -1,0 +1,51 @@
+<form name="userForm" class="   form-horizontal">
+<div class="form-group">
+    <label class="control-label col-md-3">First Name</label>
+    <div class="col-md-6">
+        <input type="text"  name="firstName" ng-model="vm.user.first_name" required="required">
+        <span class="help-block">{{userForm.firstName.$valid ?"" :"This field is required"}}</span>
+    </div>
+</div>
+<div class="form-group">
+    <label class="control-label col-md-3">Last Name</label>
+    <div class="col-md-6">
+        <input type="text" name="lastName" required="required" ng-model="vm.user.last_name">
+        <span class="help-block">{{userForm.lastName.$valid ?"" :"This field is required"}}</span>
+    </div>
+</div>
+
+
+    <div class="form-group">
+        <label class="control-label col-md-3">Password</label>
+        <div class="col-md-6">
+            <input type="password" name="password" required="required" ng-model="vm.user.password">
+            <span class="help-block">{{userForm.password.$valid ?"" :"This field is required"}}</span>
+        </div>
+    </div>
+<div class="form-group">
+    <label class="control-label col-md-3">Email</label>
+    <div class="col-md-6">
+        <input required="required" type="email" name="userMail" ng-model="vm.user.email">
+        <span class="help-block">{{userForm.userMail.$valid ?"" :"Please Enter a valid email address"}}</span>
+    </div>
+</div>
+<div class="form-group">
+    <label class="control-label col-md-3">Gender</label>
+    <div class="col-md-6">
+       <select  ng-model="vm.user.gender" name="gender" required="required">
+           <option value="Male">Male</option>
+           <option value="Female">Female</option>
+       </select>
+
+        <span class="help-block">{{userForm.gender.$valid ?"" :"Please select a gender from combobox"}}</span>
+    </div>
+</div>
+    <div class="form-group">
+        <label class="control-label col-md-3"> </label>
+        <div class="col-md-6">
+            <a  ng-class="userForm.$valid ? 'enabled' : 'disabled'"  class="btn green btn-primary" ng-click="vm.save(vm.user)">
+                <i class="fa fa-check"></i> Save</a>
+            <a type="button" class="btn default" ui-sref="main.user.userList">Cancel</a>
+        </div>
+    </div>
+</form>

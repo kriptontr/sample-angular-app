@@ -1,0 +1,30 @@
+{
+  "name": "sample-angular-app",
+  "version": "1.0.0",
+  "description": "Sample angular app",
+  "main": "index.html",
+  "scripts": {
+    "start:api": "json-server --watch db.json"
+  },
+  "devDependencies": {
+    "angular-mocks": "^1.5.8",
+    "gulp": "^3.9.1",
+    "gulp-base": "^1.1.3",
+    "gulp-concat": "^2.6.0",
+    "gulp-inject": "^4.1.0",
+    "gulp-json-srv": "^1.0.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^2.0.0",
+    "jasmine-core": "^2.5.2",
+    "json-server": "^0.8.14",
+    "karma": "^1.3.0",
+    "karma-chrome-launcher": "^2.0.0",
+    "karma-jasmine": "^1.0.2",
+    "karma-ng-html2js-preprocessor": "^1.0.0",
+    "ng-html2js": "^3.0.0",
+    "webpack": "^1.13.3"
+  },
+  "dependencies": {
+    "angular": "^1.5.8"
+  }
+}

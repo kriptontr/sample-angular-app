@@ -1,0 +1,79 @@
+<div class="page-header">
+    <h1>User List </h1>
+</div>
+<div class="col-md-12">
+    <div class="col-md-3">
+        <a class="btn btn-primary" ui-sref="main.user.userEditor({id:'new'})">Add User</a>
+        <a class="btn btn-primary">Import Users</a>
+    </div>
+    <div class="col-md-6"></div>
+    <div class="col-md-3">
+
+            <div class="input-group">
+                <input type="text" class="form-control" ng-model="vm.searchTxt" placeholder="Search for...">
+                <span class="input-group-btn" >
+        <button class="btn btn-default" type="button" ng-click="  vm.setSearch()">Go!</button>
+      </span>
+            </div>
+
+    </div>
+
+    <div class="container">
+        <div class="table-responsive col-md-12">
+        <table class="table table-striped  ">
+            <thead>
+            <tr>
+                <th ng-repeat="prop in vm.fields" ng-click="vm.changeSort(prop.propName)"> {{prop.pretty}}</th>
+<th >Action</th>
+
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="user in vm.users">
+                <td ng-repeat="prop in vm.fields">{{user[prop.propName]}}</td>
+                <td >
+                    <a class="btn btn-primary" ui-sref="main.user.userEditor({id:user.id})"> Edit</a>
+                    <a data-target="#delModal" data-toggle="modal" class="btn   btn-danger"  ng-click="vm.deletingUser = user" >  Delete</a>
+
+                </td>
+            </tr>
+
+
+            </tbody>
+        </table>
+        </div>
+       <div class="row"> <ul class="pagination col-md-11">
+            <li ng-class="pagn.isActive ? 'active' :'' " ng-repeat="pagn in vm.pages track by $index" ng-click="vm.setPage(pagn)"><a >{{($index +1)}}</a></li>
+
+        </ul>
+        <select ng-model="vm.limitSelect" ng-change="vm.setLimit()" class="col-md-1">
+            <option value="100"> 100</option>
+            <option value="50"> 50</option>
+            <option value="20"> 20</option>
+            <option value="10"> 10</option>
+
+        </select>
+    </div></div>
+
+</div>
+
+<div id="delModal" class="modal fade" role="dialog" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <h4 class="modal-title">Do you want to really ... </h4>
+            </div>
+            <div class="modal-body">
+                <form action="#" class="form-horizontal ">
+                    Confirm  to delete user named {{vm.deletingUser.first_name+" " +vm.deletingUser.first_name}} ?
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <button type="button" data-dismiss="modal" ng-click="vm.deleteUser(vm.deletingUser.id)" value="true" class="btn btn-danger">
+                    <i class="fa fa-trash " ></i> Delete</button>
+            </div>
+        </div>
+    </div>
+</div>
