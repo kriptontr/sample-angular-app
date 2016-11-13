@@ -3,7 +3,7 @@
 
 Built with AngularJS, Gulp and Bootstrap
 
- * Generating table column by data objects properites
+ * Generating table columns by data objects properites
  * Able to sort, search, paginate results.
  * Followed [angular-styleguide](https://github.com/johnpapa/angular-styleguide/blob/master/a1/README.md)
 
